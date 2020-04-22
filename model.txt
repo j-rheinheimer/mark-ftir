@@ -1,0 +1,8 @@
+Model of use to mark-function
+
+conversion_degreee(
+    path='/home/rheinheimer/Dropbox/Codes/Python/lab-mav/mark/data/*',
+    time_step=0.1,
+    separator=';',
+    header=None
+)
