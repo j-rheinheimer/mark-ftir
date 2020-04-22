@@ -1,3 +1,5 @@
 # Ignorando a pasta de dados
 
 /data
+degree_output.txt
+time_step_output.txt
