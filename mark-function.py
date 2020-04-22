@@ -10,12 +10,16 @@ import numpy as np
 import glob
 
 
-def conversion_degreee(path, time_step, separator, header):
+def conversion_degreee(n1, n2, path, time_step, separator, header):
     """
     Function that makes the calculus and plot the graphic of the
     conversion degree of polymerization about FTIR data.
 
     Parameters:
+
+    n1 (int): Value of the first peak
+
+    n2 (int): Value of the second peak
 
     path (string): Path to the directory with the data.
     Example: '/home/rheinheimer/Dropbox/Codes/Python/lab-mav/mark/data/*'
@@ -49,7 +53,7 @@ def conversion_degreee(path, time_step, separator, header):
 
         df.columns = ['wave_number', 'intensity']
         intensity = np.array(df['intensity'])
-        degree = intensity[1633]/intensity[1695]
+        degree = intensity[n1]/intensity[n2]
         degree_vector.append(degree)
         time_vector.append(cont)
 
