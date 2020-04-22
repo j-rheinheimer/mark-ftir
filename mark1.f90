@@ -1,4 +1,4 @@
-program odair
+program mark
 
 implicit none
 double precision, dimension(0:1866) :: a, b
