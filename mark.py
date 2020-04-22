@@ -13,6 +13,9 @@ files = glob.glob(
     pathname='/home/rheinheimer/Dropbox/Codes/Python/lab-mav/mark/data/*'
 )
 
+n1 = 1633
+n2 = 1695
+
 degree_vector = []
 time_vector = []
 
@@ -30,7 +33,7 @@ for file in sorted(files):
     df.columns = ['wave_number', 'intensity']
     wave_number = np.array(df['wave_number'])
     intensity = np.array(df['intensity'])
-    degree = intensity[1633]/intensity[1695]
+    degree = intensity[n1]/intensity[n2]
     degree_vector.append(degree)
     time_vector.append(cont)
 
