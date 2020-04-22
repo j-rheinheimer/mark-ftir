@@ -10,10 +10,15 @@ import numpy as np
 import glob
 
 files = glob.glob(
-    pathname='/home/rheinheimer/Dropbox/Programas/lab_mav/mark_project/data/*'
+    pathname='/home/rheinheimer/Dropbox/Codes/Python/lab-mav/mark/data/*'
 )
 
-for file in files:
+degree_vector = []
+time_vector = []
+
+cont = 0
+for file in sorted(files):
+    cont = cont + 1
     df = pd.read_csv(
             filepath_or_buffer=file,
             sep=';',
@@ -25,9 +30,18 @@ for file in files:
     df.columns = ['wave_number', 'intensity']
     wave_number = np.array(df['wave_number'])
     intensity = np.array(df['intensity'])
-
     degree = intensity[1633]/intensity[1695]
-
-    print(degree)
+    degree_vector.append(degree)
+    time_vector.append(cont)
 
 plt.figure()
+plt.xlabel('Time')
+plt.ylabel('Conversion degree')
+plt.plot(time_vector, degree_vector)
+plt.show()
+
+with open('degree_output.txt', 'w') as degree_output:
+    degree_output.writelines(str(degree_vector))
+
+with open('time_step_output.txt', 'w') as time_step_output:
+    time_step_output.writelines(str(time_vector))
