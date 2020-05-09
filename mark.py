@@ -6,11 +6,14 @@ Dados de IRFT
 
 import matplotlib.pyplot as plt
 import pandas as pd
-import numpy as np
 import glob
 
+wsl_path = '/mnt/c/Users/jprhe/Dropbox/Codes/Projects/mark/data/*'
+linux_path = '/home/rheinheimer/Dropbox/Codes/Projects/mark/data/*'
+windows_path = 'C:/Users/jprhe/Dropbox/Codes/Projects/mark/Data/*'
+
 files = glob.glob(
-    pathname='/home/rheinheimer/Dropbox/Codes/Python/lab-mav/mark/data/*'
+    pathname=linux_path
 )
 
 n1 = 1633
@@ -31,9 +34,7 @@ for file in sorted(files):
         )
 
     df.columns = ['wave_number', 'intensity']
-    wave_number = np.array(df['wave_number'])
-    intensity = np.array(df['intensity'])
-    degree = intensity[n1]/intensity[n2]
+    degree = df.intensity[n1]/df.intensity[n2]
     degree_vector.append(degree)
     time_vector.append(cont)
 
