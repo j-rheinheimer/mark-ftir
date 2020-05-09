@@ -6,8 +6,11 @@ FTIR data
 
 import matplotlib.pyplot as plt
 import pandas as pd
-import numpy as np
 import glob
+
+wsl_path = '/mnt/c/Users/jprhe/Dropbox/Codes/Projects/mark/data/*'
+linux_path = '/home/rheinheimer/Dropbox/Codes/Projects/mark/data/*'
+windows_path = 'C:/Users/jprhe/Dropbox/Codes/Projects/mark/Data/*'
 
 
 def conversion_degreee(n1, n2, path, time_step, separator, header):
@@ -52,8 +55,7 @@ def conversion_degreee(n1, n2, path, time_step, separator, header):
         )
 
         df.columns = ['wave_number', 'intensity']
-        intensity = np.array(df['intensity'])
-        degree = intensity[n1]/intensity[n2]
+        degree = df.intensity[n1]/df.intensity[n2]
         degree_vector.append(degree)
         time_vector.append(cont)
 
